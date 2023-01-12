@@ -8,8 +8,6 @@ const { host, PORT } = require("./config/config.js");
 
 const { fetch, fetchAll } = require("./lib/database");
 
-process.env.PWD = process.cwd();
-
 app.engine("html", ejs.renderFile);
 app.set("view engine", "html");
 app.set("views", path.join(__dirname, "views"));
@@ -31,7 +29,7 @@ app.post("/post-link", async (req, res) => {
 
   if (data.id) {
     download(data.name, "public/audios").then(() => {});
-    res.redirect("https://blue-itchy-sturgeon.cyclic.app/audios");
+    res.redirect("https://audio-downloader.herokuapp.com/audios");
   }
 });
 
@@ -59,7 +57,7 @@ app.get("/audios", async (req, res) => {
 
 app.post("/download", (req, res) => {
   let name = req.body.name.substring(req.body.name.lastIndexOf("/") + 1);
-  res.download(process.env.PWD + "/public/audios/" + name);
+  res.download(path.join(__dirname, "public", "audios", name));
   res.status(200);
 });
 
