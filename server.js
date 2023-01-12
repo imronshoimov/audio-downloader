@@ -28,7 +28,7 @@ app.post("/post-link", async (req, res) => {
 
   if (data.id) {
     download(data.name, "public/audios").then(() => {});
-    res.redirect("http://localhost:3000/audios");
+    res.redirect("https://blue-itchy-sturgeon.cyclic.app/audios");
   }
 });
 
