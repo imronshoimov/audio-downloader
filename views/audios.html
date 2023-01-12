@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/audios.css" />
+  </head>
+  <body>
+    <a href="/">To home page</a>
+    <ul>
+      <% for(let audio of audios) { %>
+      <li>
+        <audio controls controls="download">
+          <source src="<%= audio.name %>" type="audio/mpeg" />
+        </audio>
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>
