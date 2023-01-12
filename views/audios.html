@@ -12,9 +12,13 @@
     <ul>
       <% for(let audio of audios) { %>
       <li>
-        <audio controls controls="download">
+        <audio controls>
           <source src="<%= audio.name %>" type="audio/mpeg" />
         </audio>
+
+        <form action="/download" method="POST">
+          <input type="submit" name="name" value="<%= audio.name %>" />
+        </form>
       </li>
       <% } %>
     </ul>
