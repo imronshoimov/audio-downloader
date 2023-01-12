@@ -57,7 +57,7 @@ app.get("/audios", async (req, res) => {
 
 app.post("/download", (req, res) => {
   let name = req.body.name.substring(req.body.name.lastIndexOf("/") + 1);
-  res.download(path.join("audios", name));
+  res.download("https://blue-itchy-sturgeon.cyclic.app/audios" + name);
   res.status(200);
 });
 
